@@ -1,4 +1,4 @@
-package ru.sinitsynme.newtonsystems.rest;
+package ru.sinitsynme.newtonsystems.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,23 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(ArithmeticException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<ExceptionResponse> resourceNotFoundException(Exception ex){
+    public ResponseEntity<ExceptionResponse> inconsistentSystemException(Exception ex) {
         ExceptionResponse response = new ExceptionResponse(new Date(), ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ExceptionResponse> incorrectFunctionInputException(Exception ex) {
+        ExceptionResponse response = new ExceptionResponse(new Date(), "Input functions are incorrect!");
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ErrorRateException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ExceptionResponse> incorrectErrorRateException(Exception ex) {
+        ExceptionResponse response = new ExceptionResponse(new Date(), ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
 

@@ -1,10 +1,9 @@
 package ru.sinitsynme.newtonsystems.service;
 
-import org.springframework.stereotype.Service;
 import ru.sinitsynme.newtonsystems.dto.EquationSystemRequestDto;
 import ru.sinitsynme.newtonsystems.dto.EquationSystemResponseDto;
 
-public interface CalculationService {
+public interface SystemCalculationService {
 
     EquationSystemResponseDto solveSystem(EquationSystemRequestDto system);
 

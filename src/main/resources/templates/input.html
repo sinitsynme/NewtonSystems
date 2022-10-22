@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Solution</title>
 </head>
 <body>
-$END$
+
+<h1>
+    <b>Newton’s method for solving systems of 2 non-linear equations</b>
+</h1>
+
+<h1>Coursework for “Numerical Methods” course</h1>
+
+<h2>
+    <b>INPUT THE SYSTEM</b>
+</h2>
+
+<form th:action="@{/solve}" th:method="get" th:object="${requestDto}">
+
+    <div class="form-group">
+        <label for="func1">Input the 1<sup>st</sup> equation</label>
+        <input type="text" class="form-control"  th:field="*{func1}" id="func1" required>
+        <label>= 0</label>
+    </div>
+    <div class="form-group">
+        <label for="func2">Input the 2<sup>nd</sup> equation</label>
+        <input type="text" class="form-control" th:field="*{func2}"  id="func2" required>
+        <label>= 0</label>
+    </div>
+    <div class="form-group">
+        <label for="errorRate">Error rate</label>
+        <input type="text" class="form-control" th:field="*{errorRate}" id="errorRate" required>
+    </div>
+
+    <h2>Remember that you have to use variables <b>x</b> and <b>y</b> to get the correct solution!</h2>
+
+    <button type="submit">Calculate</button>
+</form>
+
+
+<footer>Maxim Sinitsyn, 2022</footer>
+
 </body>
 </html>
