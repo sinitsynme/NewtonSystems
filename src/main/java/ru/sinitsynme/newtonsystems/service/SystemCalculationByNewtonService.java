@@ -27,8 +27,8 @@ public class SystemCalculationByNewtonService implements SystemCalculationServic
 
         double errorRate = system.getErrorRate();
 
-        if (errorRate <= 0){
-            throw new ErrorRateException("Error rate must be positive!");
+        if (errorRate <= 0 || errorRate >= 0.1){
+            throw new ErrorRateException("Error rate must be positive and less than 0.1!");
         }
 
         double[] xk;
@@ -60,7 +60,12 @@ public class SystemCalculationByNewtonService implements SystemCalculationServic
 
 
     private Expression formFunction(String func){
-        return new ExpressionBuilder(func).variables("x", "y").build();
+        try {
+            return new ExpressionBuilder(func).variables("x", "y").build();
+        }
+        catch (Exception e){
+            throw new IllegalArgumentException("Only variables X and Y are allowed!");
+        }
     }
 
     private double[][] calculateJacobian(double[] x, Expression[] f){
