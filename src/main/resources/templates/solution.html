@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Solution</title>
 </head>
-<body>
+<body style="background-color: beige">
 
-<h1>
-    <b>Newton’s method for solving systems of 2 non-linear equations</b>
-</h1>
-
-<h1>Coursework for “Numerical Methods” course</h1>
-
-<h2>
-    <b>SOLUTION</b>
-</h2>
+<div style="text-align: center">
+    <h1 style="margin-top: 50pt">
+        <b>Newton’s method for solving systems of 2 non-linear equations</b>
+    </h1>
 
 
-<p> x = [(${x})]</p>
-<p> y = [(${y})]</p>
+    <h1 style="margin-top: 30pt">Coursework for “Numerical Methods” course</h1>
 
-<form th:action="@{/}" method="get">
-    <button>Calculate again</button>
-</form>
+    <h2 style="margin-top: 30pt">
+        <b>SOLUTION</b>
+    </h2>
+
+
+    <h3 style="margin-top: 50pt"> x = [(${x})]</h3>
+    <h3> y = [(${y})]</h3>
+
+    <form th:action="@{/}" method="get" style="margin-top: 50pt">
+        <button>Calculate again</button>
+    </form>
+
+    <footer style="margin-top: 100pt">Maxim Sinitsyn, 2022</footer>
+
+</div>
 
 </body>
 </html>
